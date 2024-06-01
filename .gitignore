@@ -1,0 +1,5 @@
+__pycache__
+myvenv
+.env
+*/__pycache__
+boilerplate-sample.ini
