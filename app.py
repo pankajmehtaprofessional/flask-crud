@@ -3,12 +3,21 @@ import json
 from flask import Flask
 from dotenv import load_dotenv
 from bson.objectid import ObjectId
+from flasgger import Swagger
 from src import Bootstrap
 from src.middlewares import before_request
 
 load_dotenv()
 
 app = Flask(__name__)
+
+swagger = Swagger(app, template={
+    "info": {
+        "title": "My Flask API",
+        "description": "An example API using Flask and Swagger",
+        "version": "1.0.0"
+    }
+})
 
 class CustomJSONEncoder(json.JSONEncoder):
     def default(self, o):
